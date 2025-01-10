@@ -1,10 +1,4 @@
 [[redirects]]
   from = "/api/*"
-  to = "http://94.131.246.109:5555/v1/:splat"
+  to = "http://94.131.246.109:5555/:splat"
   status = 200
-  force = true
-  headers = {X-From = "Netlify"}
-  [redirects.headers]
-    Access-Control-Allow-Origin = "*"
-    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
-    Access-Control-Allow-Headers = "Origin, X-Requested-With, Content-Type, Accept, Authorization"
