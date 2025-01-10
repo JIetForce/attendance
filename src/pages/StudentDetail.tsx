@@ -3,7 +3,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import Button from "@mui/material/Button";
 import { getFullName } from "../utils/common";
 import { StudentsAndColumns } from "../types/students";
-import { CLASS_KEY } from "../constants/students";
+import { CLASS_KEY } from "../../constants/students";
 import { InfiniteData } from "@tanstack/react-query";
 
 type QueryData = InfiniteData<StudentsAndColumns> | undefined;

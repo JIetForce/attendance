@@ -14,7 +14,7 @@ import {
   Student,
   StudentsAndColumns,
 } from "../types/students";
-import { CLASS_KEY } from "../constants/students";
+import { CLASS_KEY } from "./../../constants/students";
 
 const fetchStudentsAndColumns = async ({
   pageParam = 1,
