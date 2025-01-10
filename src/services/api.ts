@@ -1,8 +1,12 @@
 import axios from "axios";
 import toast from "react-hot-toast";
 
+const baseURL = import.meta.env.PROD
+  ? "http://94.131.246.109:5555/v1/"
+  : "/api/v1/";
+
 const api = axios.create({
-  baseURL: "/api/v1/",
+  baseURL,
   headers: {
     "Accept-Language": "en",
     Authorization: `Bearer ${localStorage.getItem("token")}`,
