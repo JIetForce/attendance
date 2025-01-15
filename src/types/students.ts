@@ -35,3 +35,7 @@ export type AbsenceData = {
   SchoolboyId: number;
   ColumnId: number;
 };
+
+export type StudentsResponse = {
+  Items: Student[];
+};

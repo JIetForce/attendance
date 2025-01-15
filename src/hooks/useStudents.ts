@@ -14,17 +14,17 @@ import {
   Student,
   StudentsAndColumns,
 } from "../types/students";
-import { CLASS_KEY } from "./../../constants/students";
 
 const fetchStudentsAndColumns = async ({
   pageParam = 1,
+  classKey = "",
 }): Promise<StudentsAndColumns> => {
   const [studentsResponse, ratesResponse, columnsResponse] = await Promise.all([
     api.get<InfiniteQueryResponse>(
-      `${CLASS_KEY}/Schoolboy?page=${pageParam}&limit=10`
+      `${classKey}/Schoolboy?page=${pageParam}&limit=10`
     ),
-    api.get<InfiniteQueryResponse>(`${CLASS_KEY}/Rate`),
-    api.get<InfiniteQueryResponse>(`${CLASS_KEY}/Column`),
+    api.get<InfiniteQueryResponse>(`${classKey}/Rate`),
+    api.get<InfiniteQueryResponse>(`${classKey}/Column`),
   ]);
 
   const students = studentsResponse.data.Items as Student[];
@@ -51,7 +51,8 @@ export const useStudents = (classKey: string) => {
     isFetchingNextPage,
   } = useInfiniteQuery({
     queryKey: ["studentsAndColumns", classKey],
-    queryFn: fetchStudentsAndColumns,
+    queryFn: ({ pageParam }) =>
+      fetchStudentsAndColumns({ pageParam, classKey }),
     initialPageParam: 1,
     getNextPageParam: (lastPage, pages) => {
       if (lastPage.students.length < 10) return undefined;

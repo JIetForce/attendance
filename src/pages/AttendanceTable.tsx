@@ -18,7 +18,7 @@ import {
   Button,
 } from "@mui/material";
 import { getFirstLastName } from "../utils/common";
-import { CLASS_KEY } from "../../constants/students";
+import { CLASS_KEY } from "../constants/students";
 
 const AttendanceTable: React.FC = () => {
   const [confirmDialog, setConfirmDialog] = useState<{
